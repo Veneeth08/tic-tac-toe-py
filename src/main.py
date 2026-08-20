@@ -18,10 +18,23 @@ while True:
 
     pos -= 1
 
-    if board.make_move(pos, current_symbol):
-        if current_symbol == "X":
-            current_symbol = "O"
-        else:
-            current_symbol = "X"
-    else:
+    if not board.make_move(pos, current_symbol):
         print("Position already occupied")
+        continue
+
+    winner = board.check_winner()
+
+    if winner is not None:
+        board.display()
+        print(f"Player {winner} wins!")
+        break
+
+    if board.is_full():
+        board.display()
+        print("It's a draw!")
+        break
+
+    if current_symbol == "X":
+        current_symbol = "O"
+    else:
+        current_symbol = "X"
