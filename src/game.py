@@ -1,10 +1,13 @@
 import os
 from board import Board
+from player import HumanPlayer
 
 class Game:
     def __init__(self):
         self.board = Board()
-        self.current_symbol = "X"
+        self.player_X = HumanPlayer("X")
+        self.player_O = HumanPlayer("O")
+        self.current_player = self.player_X
 
     def display_title(self):
         print("========================")
@@ -13,34 +16,21 @@ class Game:
 
     def get_move(self):
         while True:
-            try:
-                pos = int(
-                    input(
-                        f"Player {self.current_symbol}, "
-                        "choose a position (1-9): "
-                    )
-                )
-            except ValueError:
-                print("Invalid input. Please enter a number from 1 to 9")
-                continue
-
-            if pos < 1 or pos > 9:
-                print("Invalid position. Please enter a number from 1 to 9")
-                continue
+            pos = self.current_player.get_move(self.board)
 
             pos -= 1
 
-            if not self.board.make_move(pos, self.current_symbol):
+            if not self.board.make_move(pos, self.current_player.symbol):
                 print("Position already occupied")
                 continue
 
             return
 
     def switch_player(self):
-        if self.current_symbol == "X":
-            self.current_symbol = "O"
+        if self.current_player == self.player_X:
+            self.current_player = self.player_O
         else:
-            self.current_symbol = "X"
+            self.current_player = self.player_X
 
     def play(self):
         while True:
