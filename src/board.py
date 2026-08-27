@@ -1,6 +1,7 @@
 class Board:
     def __init__ (self):
         self.cells = [" ", " ", " ", " ", " ", " ", " ", " ", " "]
+        self.available = set(range(9))
         self.filled = 0
 
         self.winning_positions = [
@@ -23,14 +24,14 @@ class Board:
         print("| %s | %s | %s |" %(self.cells[6], self.cells[7], self.cells[8]))
         print('+---+---+---+')
 
-    def is_available(self, pos):
-        return self.cells[pos] == " "
-
     def make_move(self, pos, symbol):
-        if not self.is_available(pos):
+        if pos not in self.available:
             return False
+        
         self.cells[pos] = symbol
+        self.available.remove(pos)
         self.filled += 1
+        
         return True
 
     def check_winner(self):

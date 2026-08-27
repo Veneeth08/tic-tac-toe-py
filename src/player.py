@@ -1,3 +1,5 @@
+import numpy as np
+
 class Player:
     def __init__ (self, symbol):
         self.symbol = symbol
@@ -23,4 +25,8 @@ class HumanPlayer(Player):
                 print("Invalid position. Please enter a number from 1 to 9")
                 continue
     
-            return pos
+            return pos-1
+
+class RandomPlayer(Player):
+    def get_move(self, board):
+        return np.random.choice(list(board.available))

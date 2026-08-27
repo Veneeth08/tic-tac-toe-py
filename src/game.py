@@ -1,12 +1,13 @@
 import os
 from board import Board
 from player import HumanPlayer
+from player import RandomPlayer
 
 class Game:
     def __init__(self):
         self.board = Board()
         self.player_X = HumanPlayer("X")
-        self.player_O = HumanPlayer("O")
+        self.player_O = RandomPlayer("O")
         self.current_player = self.player_X
 
     def display_title(self):
@@ -17,8 +18,6 @@ class Game:
     def get_move(self):
         while True:
             pos = self.current_player.get_move(self.board)
-
-            pos -= 1
 
             if not self.board.make_move(pos, self.current_player.symbol):
                 print("Position already occupied")

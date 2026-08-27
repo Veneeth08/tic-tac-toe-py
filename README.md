@@ -2,7 +2,7 @@
 
 ## Current Features
 
-- Only Human vs Human is available for now
+- Only Human vs Human and Human vs RandomAI are available for now
 - Terminal based interface
 
 ## Clone the Repository
