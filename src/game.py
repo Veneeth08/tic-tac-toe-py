@@ -1,14 +1,10 @@
 import os
 from board import Board
-from player import HumanPlayer
-from player import RandomPlayer
-from player import MinimaxPlayer
-
 class Game:
-    def __init__(self):
+    def __init__(self, player_X, player_O):
         self.board = Board()
-        self.player_X = HumanPlayer("X")
-        self.player_O = MinimaxPlayer("O")
+        self.player_X = player_X
+        self.player_O = player_O
         self.current_player = self.player_X
 
     def display_title(self):

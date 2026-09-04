@@ -1,8 +1,8 @@
-# Tic-Tac-Toe AI
+# Tic-Tac-Toe-Py
 
 ## Current Features
 
-- Only Human vs Human and Human vs RandomAI are available for now
+- Currently 3 possible players namely Human, Random, Minimax available
 - Terminal based interface
 
 ## Clone the Repository
@@ -34,9 +34,7 @@ cd tic-tac-toe-ai
 python src/main.py
 ```
 
-## Planned Features
+## Planned Improvements
 
-- AI vs Human
-- AI vs AI
-- Minimax AI
 - Alpha-Beta pruning
+- Browser Interface, using Streamlit
