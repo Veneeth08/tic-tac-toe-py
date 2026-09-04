@@ -27,13 +27,24 @@ gh repo clone Veneeth08/tic-tac-toe-py
 
 ## How to Play
 
-After cloning the repository, enter the repository and run:
+After cloning the repository, enter the repository:
 
 ```bash
 cd tic-tac-toe-py
+```
+Now create and activate virtual environment and also install required libraries:
+
+```bash
+python3 -m venv .venv
+source .venv/bin/activate
+pip install -r requirements.txt
+```
+Run the python code to play:
+
+```bash
 python src/main.py
 ```
-then choose players for X and O and play
+then choose players for X and O
 
 ## Planned Improvements
 
