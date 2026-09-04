@@ -23,6 +23,16 @@ class Board:
         print('+---+---+---+')
         print("| %s | %s | %s |" %(self.cells[6], self.cells[7], self.cells[8]))
         print('+---+---+---+')
+        
+    def undo_move(self, pos):
+        if pos in self.available:
+            return False
+        
+        self.cells[pos] = " "
+        self.available.add(pos)
+        self.filled -= 1
+        
+        return True
 
     def make_move(self, pos, symbol):
         if pos not in self.available:
